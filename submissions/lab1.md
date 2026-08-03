@@ -150,7 +150,7 @@ supply-chain-инцидент из «кто-то что-то подменил» 
 ## Task 3 — GitHub Community
 
 **Starred:** `inno-devops-labs/DevOps-Intro`, `simple-container-com/api`
-**Following:** @Cre-eD, @Naghme98, @pierrepicaud + <!-- 3 одногруппника -->
+**Following:** @Cre-eD, @Naghme98, @pierrepicaud + @G-Akleh, @Dnau15, @Ephy01
 
 Звезда — это не только закладка: суммарный star count де-факто работает
 сигналом доверия при выборе зависимости, а публичный список звёзд в профиле
@@ -179,7 +179,17 @@ supply-chain-инцидент из «кто-то что-то подменил» 
 $ git -c commit.gpgsign=false commit --no-gpg-sign -s --allow-empty \
     -m "test: unsigned commit (should fail)"
 $ git push origin main
-<!-- INSERT: вставить содержимое evidence/unsigned-push-rejection.txt -->
+remote: error: GH006: Protected branch update failed for refs/heads/main.        
+remote: 
+remote: - Commits must have verified signatures.        
+remote:   Found 1 violation:        
+remote: 
+remote:   29421653cbdb10f2f9ed4b97ce52a4e28fd5fab0        
+remote: 
+remote: - Changes must be made through a pull request.        
+To github.com:HNS2112/DevOps-Intro.git
+ ! [remote rejected] main -> main (protected branch hook declined)
+error: failed to push some refs to 'github.com:HNS2112/DevOps-Intro.git'
 ```
 
 > Примечание: в методичке приведено `git commit -S=false` — такой синтаксис Git

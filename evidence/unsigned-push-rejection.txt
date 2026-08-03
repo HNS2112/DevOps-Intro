@@ -1,0 +1,11 @@
+remote: error: GH006: Protected branch update failed for refs/heads/main.        
+remote: 
+remote: - Commits must have verified signatures.        
+remote:   Found 1 violation:        
+remote: 
+remote:   29421653cbdb10f2f9ed4b97ce52a4e28fd5fab0        
+remote: 
+remote: - Changes must be made through a pull request.        
+To github.com:HNS2112/DevOps-Intro.git
+ ! [remote rejected] main -> main (protected branch hook declined)
+error: failed to push some refs to 'github.com:HNS2112/DevOps-Intro.git'
