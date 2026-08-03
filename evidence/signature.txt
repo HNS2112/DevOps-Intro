@@ -1,8 +1,8 @@
-commit 70e9954b31d187134b9fab795739c21e05143f3a
+commit 00f698ea584fc5b9e7ea070a31fa868e01fd2970
 Good "git" signature for 239804565+HNS2112@users.noreply.github.com with ED25519 key SHA256:w1hbjtty/1UU7w1K0zNjnqtEwR/cfaBaCw8NLHuSF0o
 Author: Elvira <239804565+HNS2112@users.noreply.github.com>
-Date:   Mon Aug 3 22:31:30 2026 +0300
+Date:   Mon Aug 3 22:34:27 2026 +0300
 
-    docs(lab1): start submission
+    docs(lab1): QuickNotes run, SSH signing, PR template
     
     Signed-off-by: Elvira <239804565+HNS2112@users.noreply.github.com>
