@@ -138,7 +138,7 @@ supply-chain-инцидент из «кто-то что-то подменил» 
 
 ### 2.2 PR
 
-**PR URL:** <!-- вставить ссылку -->
+**PR URL:** https://github.com/inno-devops-labs/DevOps-Intro/pull/1487
 
 ![PR auto-populated](../evidence/screenshots/pr-template.png)
 <!-- Скриншот: форма создания PR с уже подставленными секциями -->
