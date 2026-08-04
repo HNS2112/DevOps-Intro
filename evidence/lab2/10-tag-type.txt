@@ -1,0 +1,6 @@
+$ git tag -l --format="%(refname:short) %(objecttype) %(*objecttype)"
+v0.0.1 tag commit
+v0.1.0-lab2-HNS2112 tag commit
+
+$ git cat-file -t v0.1.0-lab2-HNS2112
+tag

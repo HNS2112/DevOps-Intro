@@ -1,0 +1,22 @@
+running 'sh' '-c' 'cd app && go test ./... && go build ./...'
+--- FAIL: TestStore_PersistsAcrossReload (0.00s)
+    store_test.go:78: nextID not restored: got 1, want 2
+FAIL
+FAIL	quicknotes	0.003s
+FAIL
+Бинарный поиск: 0 редакций осталось проверить после этой (примерно 0 шагов)
+[cb89bb9ee2ee5010b166061447eaca3ae0da2378] docs(store): comment the load() decode step
+running 'sh' '-c' 'cd app && go test ./... && go build ./...'
+ok  	quicknotes	0.004s
+f285ede8611e55ac0a7d01100891c0cc775e0709 is the first bad commit
+commit f285ede8611e55ac0a7d01100891c0cc775e0709
+Author: Dmitrii Creed <creeed22@gmail.com>
+Date:   Fri Jun 5 13:36:56 2026 +0400
+
+    refactor(store): simplify nextID restoration in load()
+    
+    Signed-off-by: Dmitrii Creed <creeed22@gmail.com>
+
+ app/store.go | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+bisect found first bad commit

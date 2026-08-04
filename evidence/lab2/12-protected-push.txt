@@ -1,0 +1,6 @@
+remote: error: GH006: Protected branch update failed for refs/heads/main.        
+remote: 
+remote: - Changes must be made through a pull request.        
+To github.com:HNS2112/DevOps-Intro.git
+ ! [remote rejected] main -> main (protected branch hook declined)
+error: не удалось отправить некоторые ссылки в «github.com:HNS2112/DevOps-Intro.git»

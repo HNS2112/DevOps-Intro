@@ -1,0 +1,14 @@
+tree db88ba097f711cb5246801d5d4aac3b4792e4e7e
+parent 9f41b7deb32343a831b5e47c61533fbc7c0ce67d
+author Elvira <239804565+HNS2112@users.noreply.github.com> 1785785467 +0300
+committer Elvira <239804565+HNS2112@users.noreply.github.com> 1785785467 +0300
+gpgsig -----BEGIN SSH SIGNATURE-----
+ U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgmWbLJSeWlD1Vuj7EC1J04q9jqj
+ ZyCXUjnh3hTPKxQSYAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+ AAAAQIrYi8c4UDJc+sld4lU7nqv/4/mC/213oU4fb4EMK+lFtN5a17TM5FwYfRXgVi5NLq
+ 5pwGh37MiPy6pqg9mCMwM=
+ -----END SSH SIGNATURE-----
+
+docs: add PR template; ignore runtime data dir
+
+Signed-off-by: Elvira <239804565+HNS2112@users.noreply.github.com>

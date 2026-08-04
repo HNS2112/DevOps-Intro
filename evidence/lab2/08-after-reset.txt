@@ -1,0 +1,22 @@
+$ git status
+Текущая ветка: main
+Эта ветка соответствует «origin/main».
+
+Неотслеживаемые файлы:
+  (используйте «git add <файл>...», чтобы добавить в то, что будет включено в коммит)
+	evidence/
+
+индекс пуст, но есть неотслеживаемые файлы
+(используйте «git add», чтобы проиндексировать их)
+
+$ git log --oneline -3
+0ecd6ba docs: add PR template; ignore runtime data dir
+9f41b7d docs(lab7): make seed.json shipping explicit; require bonus artifacts, not logs
+8de962e docs(lab11): fix nixpkgs pin vs go.mod collision; add network fallback pitfalls
+
+$ git reflog
+0ecd6ba HEAD@{0}: reset: moving to HEAD~2
+1fa1ee0 HEAD@{1}: commit: wip(lab2): more progress
+544a3cd HEAD@{2}: commit: wip(lab2): start
+0ecd6ba HEAD@{3}: checkout: moving from main to main
+0ecd6ba HEAD@{4}: clone: from github.com:HNS2112/DevOps-Intro.git

@@ -1,0 +1,28 @@
+$ ls -la .git/
+итого 52
+drwxrwxr-x 7 hns hns 4096 авг  4 19:34 .
+drwxrwxr-x 8 hns hns 4096 авг  4 19:36 ..
+-rw-rw-r-- 1 hns hns  403 авг  4 19:34 config
+-rw-rw-r-- 1 hns hns   73 авг  4 19:34 description
+-rw-rw-r-- 1 hns hns  588 авг  4 19:34 FETCH_HEAD
+-rw-rw-r-- 1 hns hns   21 авг  4 19:34 HEAD
+drwxrwxr-x 2 hns hns 4096 авг  4 19:34 hooks
+-rw-rw-r-- 1 hns hns 3183 авг  4 19:34 index
+drwxrwxr-x 2 hns hns 4096 авг  4 19:34 info
+drwxrwxr-x 3 hns hns 4096 авг  4 19:34 logs
+drwxrwxr-x 4 hns hns 4096 авг  4 19:34 objects
+-rw-rw-r-- 1 hns hns  573 авг  4 19:34 packed-refs
+drwxrwxr-x 5 hns hns 4096 авг  4 19:34 refs
+
+$ cat .git/HEAD
+ref: refs/heads/main
+
+$ ls .git/refs/heads/
+main
+
+$ ls .git/objects/ | head
+info
+pack
+
+$ find .git/objects -type f | wc -l
+3

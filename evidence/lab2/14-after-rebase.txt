@@ -1,0 +1,11 @@
+* 1d91a02 wip(lab2): more progress
+* 7607087 wip(lab2): start
+* 8768460 docs: upstream moved while you worked
+* 0ecd6ba docs: add PR template; ignore runtime data dir
+* 9f41b7d docs(lab7): make seed.json shipping explicit; require bonus artifacts, not logs
+
+$ git log --format="%h %G? %s" -4
+1d91a02 G wip(lab2): more progress
+7607087 G wip(lab2): start
+8768460 G docs: upstream moved while you worked
+0ecd6ba U docs: add PR template; ignore runtime data dir

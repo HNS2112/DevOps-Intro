@@ -1,0 +1,12 @@
+Указатель HEAD сейчас на коммите 1fa1ee0 wip(lab2): more progress
+$ git log --oneline -3
+1fa1ee0 wip(lab2): more progress
+544a3cd wip(lab2): start
+0ecd6ba docs: add PR template; ignore runtime data dir
+
+$ git status --short
+?? evidence/
+
+$ cat submissions/lab2.md
+important work
+more important work

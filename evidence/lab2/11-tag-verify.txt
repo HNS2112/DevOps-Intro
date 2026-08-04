@@ -1,0 +1,7 @@
+Good "git" signature for 239804565+HNS2112@users.noreply.github.com with ED25519 key SHA256:10QjC3lakxoG0ObZMeXhw0fBga6g+mk9UyhPWJNGmC0
+object 0ecd6ba6ff0e80f8f23f509c122d0247da0f5584
+type commit
+tag v0.1.0-lab2-HNS2112
+tagger HNS <239804565+HNS2112@users.noreply.github.com> 1785861815 +0300
+
+Lab 2 milestone — version control deep dive

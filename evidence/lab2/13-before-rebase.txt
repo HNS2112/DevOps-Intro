@@ -1,0 +1,5 @@
+* 1fa1ee0 wip(lab2): more progress
+* 544a3cd wip(lab2): start
+* 0ecd6ba docs: add PR template; ignore runtime data dir
+* 9f41b7d docs(lab7): make seed.json shipping explicit; require bonus artifacts, not logs
+* 8de962e docs(lab11): fix nixpkgs pin vs go.mod collision; add network fallback pitfalls
