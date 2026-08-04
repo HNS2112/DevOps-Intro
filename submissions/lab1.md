@@ -166,6 +166,9 @@ supply-chain-инцидент из «кто-то что-то подменил» 
 ### B.1 Rules
 
 ![Branch protection](../evidence/screenshots/branch-protection.png)
+![Branch protection — enforced rules](../evidence/screenshots/branch-protection-2.png)
+
+Машинно-читаемое подтверждение правил: [evidence/branch-protection-api.json](../evidence/branch-protection-api.json).
 
 Включено на `main` моего форка:
 - Require signed commits
