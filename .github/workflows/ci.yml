@@ -81,3 +81,16 @@ jobs:
         with:
           version: v2.5.0
           working-directory: app
+
+  ci-ok:
+    if: always()
+    needs: [vet, test, lint]
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check status of dependent jobs
+        run: |
+          if ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}; then
+            echo "One or more dependent jobs failed or were cancelled."
+            exit 1
+          fi
+          echo "All dependent jobs completed successfully."
