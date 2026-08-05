@@ -437,7 +437,111 @@ class of mistake happens.
 
 ## Bonus Task — Performance Investigation
 
-Not attempted.
+### B.1 Per-step profiling
+
+The slowest job in the baseline run (`30991194718`) was `test (1.23)` at 36 s.
+Its step breakdown:
+
+| Step | Duration |
+|------|----------|
+| Set up job | 1 s |
+| Checkout repository | 1 s |
+| Setup Go compiler | 8 s |
+| **Run unit tests** | **22 s** |
+| Post Setup Go compiler | 0 s |
+| Post Checkout repository | 1 s |
+| Complete job | 0 s |
+
+This reordered the optimisation plan. The obvious candidate — a shallow clone —
+turned out to be pointless: checkout already takes 1 s. The dominant cost is the
+test run itself, at 22 of 36 seconds.
+
+The reason is `-race`. The race detector recompiles the package with
+instrumentation and slows execution by roughly an order of magnitude; the same
+tests run locally in 0.015 s. That cost is deliberate and not worth removing —
+it is the whole reason the flag is in the pipeline.
+
+Job-level baseline (same run, 63 s wall-clock total):
+
+| Job | Duration |
+|-----|----------|
+| `test (1.23)` | 36 s |
+| `vet (1.23)` | 28 s |
+| `test (1.24)` | 25 s |
+| `lint` | 24 s |
+| `vet (1.24)` | 22 s |
+| `ci-ok` | 4 s |
+
+The 1.23 cells are consistently 8–11 s slower than their 1.24 counterparts. That
+gap is the toolchain download described in §2.2 — more evidence that the cells
+are not testing what their names claim.
+
+### B.2 Three optimisations
+
+**1. Drop the matrix from `vet`.** This follows directly from the §2.2 finding
+rather than from a generic checklist. Both matrix cells compile with Go 1.24
+regardless of what `setup-go` installs, so `vet (1.23)` and `vet (1.24)` run the
+identical analysis on identical bytecode. One of them is pure waste. The matrix
+is kept on `test`, where the assignment requires it.
+
+**2. `GOFLAGS: -buildvcs=false`** at the workflow level. Stops the Go toolchain
+from stamping VCS metadata into build artifacts, which removes a set of `git`
+invocations from every build and vet run.
+
+**3. `fetch-depth: 1`** on all three checkouts. Fetches only the tip commit
+instead of the full history.
+
+### B.3 Before / after
+
+Wall-clock, measured across multiple runs of each configuration:
+
+| Configuration | Samples (s) | Median |
+|---|---|---|
+| Before optimisation | 38, 46, 47, 50, 56 | **47** |
+| After optimisation | 42, 46, 50 | **46** |
+
+Job count dropped from six to five. Post-optimisation job breakdown
+(run `31038150857`):
+
+| Job | Duration |
+|-----|----------|
+| `test (1.23)` | 41 s |
+| `test (1.24)` | 29 s |
+| `lint` | 23 s |
+| `vet` | 21 s |
+| `ci-ok` | 2 s |
+
+### B.4 Bottleneck analysis
+
+The headline number is a one-second improvement in median wall-clock, which is
+indistinguishable from noise — the spread on an unchanged configuration is 18
+seconds. Read naively, the optimisations did nothing.
+
+That reading is wrong, and the distinction matters. Removing `vet (1.23)`
+eliminated 28 seconds of runner work and one runner slot per pipeline run. What
+it did not do is shorten the critical path, because `vet` was never on it: the
+five jobs run in parallel, so wall-clock equals the slowest job plus scheduling
+overhead plus `ci-ok`. The slowest job is `test (1.23)` at 36–41 s, and nothing
+in this optimisation set touches it.
+
+So the correct claim is that **CI minutes were saved, not developer waiting
+time**. On a private repository that is a direct billing reduction and it scales
+with every push; for a developer watching the PR page it changes nothing.
+
+The two remaining optimisations were measured honestly and produced no visible
+effect. `fetch-depth: 1` cannot help when checkout already costs 1 s — the
+repository is small and the runner's network is fast. `GOFLAGS=-buildvcs=false`
+saves a handful of `git` calls, which is below the resolution of the measurement.
+Both are correct practice and would matter on a large repository; here they were
+kept and reported as measured rather than dressed up.
+
+Shortening the critical path would require attacking `test (1.23)` itself. The
+options are all trade-offs rather than free wins: dropping `-race` would be
+faster and materially worse, since race detection is a large part of what the
+gate is for; splitting tests across parallel jobs adds fixed per-job overhead of
+roughly 10 s, which exceeds the current test time; and removing the 1.23 matrix
+cell — the honest option, given §2.2 shows it compiles with 1.24 anyway — is
+blocked by the assignment requiring the matrix on `test`.
 
 ---
 
@@ -447,4 +551,4 @@ Not attempted.
 |------|--------|
 | Task 1 — PR gate with vet + test + lint | Complete |
 | Task 2 — cache, matrix, path filter | Complete |
-| Bonus — performance investigation | Not attempted |
+| Bonus — performance investigation | Complete |
