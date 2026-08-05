@@ -1,0 +1,46 @@
+﻿
+тЬУ feature/lab3 DevOps Intro Workflow HNS2112/DevOps-Intro#1 ┬╖ 30979866915
+Triggered via pull_request about 8 minutes ago
+
+JOBS
+тЬУ vet (1.23) in 33s (ID 92221798058)
+тЬУ test (1.23) in 36s (ID 92221798062)
+тЬУ lint in 28s (ID 92221798075)
+тЬУ test (1.24) in 30s (ID 92221798094)
+тЬУ vet (1.24) in 23s (ID 92221798117)
+тЬУ ci-ok in 5s (ID 92221920679)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683, actions/setup-go@3041bf56c941b39c61721a86cd11f3bb1338122a. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+vet (1.23): .github#2
+
+! Restore cache failed: Some specified paths were not resolved, unable to cache dependencies.
+vet (1.23): .github#27
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683, actions/setup-go@3041bf56c941b39c61721a86cd11f3bb1338122a. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test (1.23): .github#2
+
+! Restore cache failed: Some specified paths were not resolved, unable to cache dependencies.
+test (1.23): .github#27
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683, actions/setup-go@3041bf56c941b39c61721a86cd11f3bb1338122a, golangci/golangci-lint-action@1481404843c368bc19ca9406f87d6e0fc97bdcfd. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+lint: .github#2
+
+! Restore cache failed: Some specified paths were not resolved, unable to cache dependencies.
+lint: .github#20
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683, actions/setup-go@3041bf56c941b39c61721a86cd11f3bb1338122a. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test (1.24): .github#2
+
+! Restore cache failed: Some specified paths were not resolved, unable to cache dependencies.
+test (1.24): .github#20
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683, actions/setup-go@3041bf56c941b39c61721a86cd11f3bb1338122a. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+vet (1.24): .github#2
+
+! Restore cache failed: Some specified paths were not resolved, unable to cache dependencies.
+vet (1.24): .github#20
+
+
+For more information about a job, try: gh run view --job=<job-id>
+View this run on GitHub: https://github.com/HNS2112/DevOps-Intro/actions/runs/30979866915

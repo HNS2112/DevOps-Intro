@@ -1,0 +1,6 @@
+﻿
+vet (1.23)	Setup Go compiler	2026-08-05T06:00:17.8727961Z go version go1.23.12 linux/amd64
+vet (1.23)	Setup Go compiler	2026-08-05T06:00:18.4785450Z GOTOOLCHAIN='auto'
+vet (1.23)	Run go vet	2026-08-05T06:00:18.5194361Z go: downloading go1.24.0 (linux/amd64)
+
+
