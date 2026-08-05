@@ -3,8 +3,14 @@ name: DevOps Intro Workflow
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'app/**'
+      - '.github/workflows/**'
   pull_request:
     branches: [ main ]
+    paths:
+      - 'app/**'
+      - '.github/workflows/**'
 
 permissions:
   contents: read
