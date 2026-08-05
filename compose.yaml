@@ -14,8 +14,16 @@ services:
       timeout: 3s
       retries: 3
       start_period: 5s
+    cap_drop:
+      - ALL
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
     volumes:
       - quicknotes-data:/data
     restart: unless-stopped
+
 volumes:
   quicknotes-data:
