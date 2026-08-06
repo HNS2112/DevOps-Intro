@@ -1,0 +1,19 @@
+=== 1. Симптом: клиент не может подключиться к новому инстансу ===
+$ curl -sv --max-time 3 http://localhost:8080/health
+{"notes":6,"status":"ok"}
+
+
+=== 2. Кто занимает порт 8080 ===
+$ ss -tlnp sport = :8080
+State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+LISTEN 0      4096               *:8080            *:*    users:(("quicknotes",pid=5201,fd=3))
+
+=== 3. Что это за процесс ===
+$ ps -p 5201 -o pid,ppid,etime,cmd
+    PID    PPID     ELAPSED CMD
+   5201    5094       09:29 /tmp/go-build2908606575/b001/exe/quicknotes
+
+=== 4. Когда он стартовал ===
+$ ls -la /proc/5201/cwd
+lrwxrwxrwx 1 hns hns 0 авг  6 18:56 /proc/5201/cwd -> /home/hns/dev/DevOps-Intro/app
+lrwxrwxrwx 1 hns hns 0 авг  6 18:56 /proc/5201/cwd -> /home/hns/dev/DevOps-Intro/app

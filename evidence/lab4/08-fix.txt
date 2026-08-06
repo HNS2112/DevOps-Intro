@@ -1,0 +1,14 @@
+=== Fix: остановить старый инстанс ===
+$ kill 5201
+$ ss -tlnp sport = :8080   (порт должен освободиться)
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+(пусто = порт свободен)
+
+=== Recovery: новый инстанс поднят ===
+$ ss -tlnp sport = :8080
+State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+LISTEN 0      4096               *:8080            *:*    users:(("quicknotes",pid=5820,fd=3))
+
+$ curl -s http://localhost:8080/health
+{"notes":6,"status":"ok"}
+
