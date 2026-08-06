@@ -1,0 +1,26 @@
+$ mtr -rwc 5 localhost
+Start: 2026-08-06T18:53:36+0300
+HOST: hns       Loss%   Snt   Last   Avg  Best  Wrst StDev
+  1.|-- localhost  0.0%     5    0.1   0.1   0.1   0.1   0.0
+
+$ ip link show lo
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+
+$ cat /proc/sys/net/ipv4/tcp_congestion_control
+cubic
+
+$ ss -tim state established dst 127.0.0.1 | head -20
+Recv-Q Send-Q Local Address:Port  Peer Address:Port Process                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+0      0          127.0.0.1:10808    127.0.0.1:49374
+	 skmem:(r0,rb170241,t0,tb2626560,f0,w0,o0,bl0,d6) cubic wscale:10,10 rto:201 rtt:0.601/0.329 ato:40 mss:65483 pmtu:65535 rcvmss:20480 advmss:65483 cwnd:27 bytes_sent:1645335 bytes_acked:1645335 bytes_received:1146513 segs_out:585 segs_in:386 data_segs_out:493 data_segs_in:112 send 23.5Gbps lastsnd:31928 lastrcv:34024 lastack:31928 pacing_rate 47Gbps delivery_rate 74.8Gbps delivered:494 app_limited busy:988ms rcv_rtt:640.625 rcv_space:70448 rcv_ssthresh:161157 minrtt:0.007 snd_wnd:325632
+0      0          127.0.0.1:10808    127.0.0.1:35028
+	 skmem:(r0,rb131072,t0,tb2626560,f0,w0,o0,bl0,d1) cubic wscale:10,10 rto:206 rtt:5.112/10.083 ato:40 mss:32768 pmtu:65535 rcvmss:536 advmss:65483 cwnd:10 bytes_sent:12 bytes_acked:12 bytes_received:13 segs_out:4 segs_in:7 data_segs_out:2 data_segs_in:2 send 513Mbps lastsnd:32576 lastrcv:32576 lastack:32535 pacing_rate 1.03Gbps delivery_rate 3.45Gbps delivered:3 app_limited busy:41ms rcv_space:65483 rcv_ssthresh:65483 minrtt:0.076 snd_wnd:65536                                            
+0      0          127.0.0.1:35028    127.0.0.1:10808
+	 skmem:(r0,rb131072,t0,tb2626560,f0,w0,o0,bl0,d0) cubic wscale:10,10 rto:201 rtt:0.133/0.047 ato:40 mss:32768 pmtu:65535 rcvmss:536 advmss:65483 cwnd:10 bytes_sent:13 bytes_acked:14 bytes_received:12 segs_out:7 segs_in:5 data_segs_out:2 data_segs_in:2 send 19.7Gbps lastsnd:32578 lastrcv:32578 lastack:2113 pacing_rate 39.2Gbps delivery_rate 2.57Gbps delivered:3 app_limited rcv_space:65495 rcv_ssthresh:65495 minrtt:0.102 snd_wnd:65536                                                       
+0      0          127.0.0.1:39186    127.0.0.1:10808
+	 skmem:(r0,rb131072,t0,tb2626560,f0,w0,o0,bl0,d0) cubic wscale:10,10 rto:203 rtt:2.618/5.187 ato:40 mss:34304 pmtu:65535 rcvmss:1391 advmss:65483 cwnd:10 bytes_sent:2311 bytes_acked:2312 bytes_received:1680 segs_out:29 segs_in:32 data_segs_out:8 data_segs_in:7 send 1.05Gbps lastsnd:520092 lastrcv:519745 lastack:6210 pacing_rate 2.1Gbps delivery_rate 19.6Gbps delivered:9 app_limited busy:42ms rcv_space:65495 rcv_ssthresh:76663 minrtt:0.014 snd_wnd:68608                                   
+0      0          127.0.0.1:49374    127.0.0.1:10808
+	 skmem:(r0,rb410514,t0,tb2626560,f0,w0,o0,bl0,d0) cubic wscale:10,10 rto:201 rtt:0.256/0.421 ato:40 mss:65483 pmtu:65535 rcvmss:8568 advmss:65483 cwnd:10 bytes_sent:1146513 bytes_acked:1146514 bytes_received:1645335 segs_out:386 segs_in:586 data_segs_out:112 data_segs_in:493 send 20.5Gbps lastsnd:34029 lastrcv:31933 lastack:1603 pacing_rate 40.9Gbps delivery_rate 105Gbps delivered:113 app_limited busy:210ms rcv_rtt:16 rcv_space:134229 rcv_ssthresh:351181 minrtt:0.005 snd_wnd:161792     
+0      0          127.0.0.1:10808    127.0.0.1:39186
+	 skmem:(r0,rb131072,t0,tb2626560,f0,w0,o0,bl0,d17) cubic wscale:10,10 rto:202 rtt:1.9/2.611 ato:40 mss:38400 pmtu:65535 rcvmss:1085 advmss:65483 cwnd:10 bytes_sent:1680 bytes_acked:1680 bytes_received:2311 segs_out:31 segs_in:29 data_segs_out:7 data_segs_in:8 send 1.62Gbps lastsnd:519749 lastrcv:520096 lastack:519749 pacing_rate 3.23Gbps delivery_rate 16.2Gbps delivered:8 app_limited busy:18ms rcv_rtt:4 rcv_space:65483 rcv_ssthresh:68534 minrtt:0.019 snd_wnd:76800                       

@@ -1,0 +1,45 @@
+18:50:14.556151 IP 127.0.0.1.52742 > 127.0.0.1.8080: Flags [S], seq 852912346, win 65495, options [mss 65495,sackOK,TS val 2230267369 ecr 0,nop,wscale 10], length 0
+E..<..@.@.;.............2.h..........0.........
+..-........
+
+18:50:14.556164 IP 127.0.0.1.8080 > 127.0.0.1.52742: Flags [S.], seq 3354113025, ack 852912347, win 65483, options [mss 65495,sackOK,TS val 407459794 ecr 2230267369,nop,wscale 10], length 0
+E..<..@.@.<.................2.h......0.........
+.IW...-....
+
+18:50:14.556173 IP 127.0.0.1.52742 > 127.0.0.1.8080: Flags [.], ack 1, win 64, options [nop,nop,TS val 2230267369 ecr 407459794], length 0
+E..4..@.@.;.............2.h........@.(.....
+..-..IW.
+18:50:14.556203 IP 127.0.0.1.52742 > 127.0.0.1.8080: Flags [P.], seq 1:176, ack 1, win 64, options [nop,nop,TS val 2230267369 ecr 407459794], length 175: HTTP: POST /notes HTTP/1.1
+E.....@.@.;6............2.h........@.......
+..-..IW.POST /notes HTTP/1.1
+Host: localhost:8080
+User-Agent: curl/8.5.0
+Accept: */*
+Content-Type: application/json
+Content-Length: 40
+
+{"title":"lab4","body":"packet capture"}
+18:50:14.556207 IP 127.0.0.1.8080 > 127.0.0.1.52742: Flags [.], ack 176, win 64, options [nop,nop,TS val 407459794 ecr 2230267369], length 0
+E..4.q@.@..P................2.i....@.(.....
+.IW...-.
+18:50:14.556662 IP 127.0.0.1.8080 > 127.0.0.1.52742: Flags [P.], seq 1:208, ack 176, win 64, options [nop,nop,TS val 407459794 ecr 2230267369], length 207: HTTP: HTTP/1.1 201 Created
+E....r@.@...................2.i....@.......
+.IW...-.HTTP/1.1 201 Created
+Content-Type: application/json
+Date: Thu, 06 Aug 2026 15:50:14 GMT
+Content-Length: 94
+
+{"id":6,"title":"lab4","body":"packet capture","created_at":"2026-08-06T15:50:14.556405793Z"}
+
+18:50:14.556696 IP 127.0.0.1.52742 > 127.0.0.1.8080: Flags [.], ack 208, win 64, options [nop,nop,TS val 2230267369 ecr 407459794], length 0
+E..4..@.@.;.............2.i........@.(.....
+..-..IW.
+18:50:14.556827 IP 127.0.0.1.52742 > 127.0.0.1.8080: Flags [F.], seq 176, ack 208, win 64, options [nop,nop,TS val 2230267369 ecr 407459794], length 0
+E..4..@.@.;.............2.i........@.(.....
+..-..IW.
+18:50:14.556994 IP 127.0.0.1.8080 > 127.0.0.1.52742: Flags [F.], seq 208, ack 177, win 64, options [nop,nop,TS val 407459794 ecr 2230267369], length 0
+E..4.s@.@..N................2.i....@.(.....
+.IW...-.
+18:50:14.557066 IP 127.0.0.1.52742 > 127.0.0.1.8080: Flags [.], ack 209, win 64, options [nop,nop,TS val 2230267370 ecr 407459794], length 0
+E..4..@.@.;.............2.i........@.(.....
+..-..IW.

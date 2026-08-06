@@ -1,0 +1,93 @@
+$ ss -tlnp | head -20
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                              
+LISTEN 0      10           0.0.0.0:7070       0.0.0.0:*                                        
+LISTEN 0      50           0.0.0.0:139        0.0.0.0:*                                        
+LISTEN 0      4096       127.0.0.1:10808      0.0.0.0:*                                        
+LISTEN 0      50           0.0.0.0:445        0.0.0.0:*                                        
+LISTEN 0      5            0.0.0.0:902        0.0.0.0:*                                        
+LISTEN 0      32     192.168.100.1:53         0.0.0.0:*                                        
+LISTEN 0      4096       127.0.0.1:11434      0.0.0.0:*                                        
+LISTEN 0      4096   127.0.0.53%lo:53         0.0.0.0:*                                        
+LISTEN 0      4096      127.0.0.54:53         0.0.0.0:*                                        
+LISTEN 0      4096       127.0.0.1:631        0.0.0.0:*                                        
+LISTEN 0      4096       127.0.0.1:33357      0.0.0.0:*                                        
+LISTEN 0      32     192.168.122.1:53         0.0.0.0:*                                        
+LISTEN 0      10              [::]:7070          [::]:*                                        
+LISTEN 0      4096           [::1]:631           [::]:*                                        
+LISTEN 0      4096               *:8080             *:*    users:(("quicknotes",pid=5201,fd=3))
+LISTEN 0      50              [::]:139           [::]:*                                        
+LISTEN 0      50              [::]:445           [::]:*                                        
+LISTEN 0      5               [::]:902           [::]:*                                        
+
+$ ss -tn state established
+Recv-Q Send-Q        Local Address:Port     Peer Address:Port Process
+0      0                 127.0.0.1:10808       127.0.0.1:49374       
+0      0      192.168.0.123%enp5s0:40090 192.227.253.103:50000       
+0      0                 127.0.0.1:39186       127.0.0.1:10808       
+0      0      192.168.0.123%enp5s0:45180 192.227.253.103:50000       
+0      0      192.168.0.123%enp5s0:52388 192.227.253.103:50000       
+0      0      192.168.0.123%enp5s0:52400 192.227.253.103:50000       
+0      0                 127.0.0.1:49374       127.0.0.1:10808       
+0      0                 127.0.0.1:10808       127.0.0.1:39186       
+0      0                 10.33.0.2:53448    207.188.6.17:443         
+
+$ ip -brief addr
+lo               UNKNOWN        127.0.0.1/8 
+enp5s0           UP             192.168.0.123/24 
+wlx9ca2f49134b7  UP             192.168.0.120/24 
+virbr0           DOWN           192.168.122.1/24 
+virbr1           DOWN           192.168.100.1/24 
+docker0          DOWN           172.17.0.1/16 
+tun2             UNKNOWN        10.33.0.2/24 
+
+$ ip route
+default via 192.168.0.1 dev enp5s0 proto dhcp src 192.168.0.123 metric 100 
+default via 192.168.0.1 dev wlx9ca2f49134b7 proto dhcp src 192.168.0.120 metric 600 
+1.0.0.0/8 via 10.33.0.2 dev tun2 
+1.0.0.1 via 10.33.0.2 dev tun2 
+2.0.0.0/7 via 10.33.0.2 dev tun2 
+4.0.0.0/6 via 10.33.0.2 dev tun2 
+8.0.0.0/5 via 10.33.0.2 dev tun2 
+10.33.0.0/24 dev tun2 proto kernel scope link src 10.33.0.2 
+16.0.0.0/4 via 10.33.0.2 dev tun2 
+32.0.0.0/3 via 10.33.0.2 dev tun2 
+64.0.0.0/2 via 10.33.0.2 dev tun2 
+127.0.0.0/8 dev lo proto kernel scope link src 127.0.0.1 metric 30 
+128.0.0.0/1 via 10.33.0.2 dev tun2 
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown 
+172.29.172.254 via 10.33.0.2 dev tun2 
+192.168.0.0/24 dev enp5s0 proto kernel scope link src 192.168.0.123 metric 100 
+192.168.0.0/24 dev wlx9ca2f49134b7 proto kernel scope link src 192.168.0.120 metric 600 
+192.168.100.0/24 dev virbr1 proto kernel scope link src 192.168.100.1 linkdown 
+192.168.122.0/24 dev virbr0 proto kernel scope link src 192.168.122.1 linkdown 
+
+$ dig +short localhost
+127.0.0.1
+
+$ dig localhost | head -20
+
+; <<>> DiG 9.18.39-0ubuntu0.24.04.5-Ubuntu <<>> localhost
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 18509
+;; flags: qr aa rd ra ad; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;localhost.			IN	A
+
+;; ANSWER SECTION:
+localhost.		0	IN	A	127.0.0.1
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Thu Aug 06 18:52:47 MSK 2026
+;; MSG SIZE  rcvd: 54
+
+
+$ getent hosts localhost
+127.0.0.1       localhost
+
+$ curl -s -o /dev/null -w "dns=%{time_namelookup} connect=%{time_connect} total=%{time_total}\n" http://localhost:8080/health
+dns=0.000031 connect=0.000240 total=0.000772

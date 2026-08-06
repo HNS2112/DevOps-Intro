@@ -1,0 +1,13 @@
+$ curl -sv http://localhost:9999/health
+* Host localhost:9999 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+*   Trying [::1]:9999...
+* Immediate connect fail for ::1: Невозможно назначить запрошенный адрес
+*   Trying 127.0.0.1:9999...
+* connect to 127.0.0.1 port 9999 from 127.0.0.1 port 58714 failed: В соединении отказано
+* Failed to connect to localhost port 9999 after 0 ms: Couldn't connect to server
+* Closing connection
+
+$ ss -tln sport = :9999
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
