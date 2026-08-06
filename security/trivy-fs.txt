@@ -1,0 +1,10 @@
+2026-08-06T16:13:15Z	INFO	[vulndb] Need to update DB
+2026-08-06T16:13:15Z	INFO	[vulndb] Downloading vulnerability DB...
+2026-08-06T16:13:15Z	INFO	[vulndb] Downloading artifact...	repo="mirror.gcr.io/aquasec/trivy-db:2"
+2026-08-06T16:13:54Z	INFO	[vulndb] Artifact successfully downloaded	repo="mirror.gcr.io/aquasec/trivy-db:2"
+2026-08-06T16:13:54Z	INFO	[vuln] Vulnerability scanning is enabled
+2026-08-06T16:13:54Z	INFO	[secret] Secret scanning is enabled
+2026-08-06T16:13:54Z	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+2026-08-06T16:13:54Z	INFO	[secret] Please see also https://aquasecurity.github.io/trivy/v0.59/docs/scanner/secret#recommendation for faster secret detection
+2026-08-06T16:13:54Z	INFO	Number of language-specific files	num=1
+2026-08-06T16:13:54Z	INFO	[gomod] Detecting vulnerabilities...

@@ -1,0 +1,22 @@
+=== ZAP baseline BEFORE fix ===
+WARN-NEW: 3, PASS: 64
+  X-Content-Type-Options Header Missing [10021] x1
+  Storable and Cacheable Content [10049] x4
+  Cross-Origin-Resource-Policy Header Missing or Invalid [90004] x1
+
+=== headers BEFORE ===
+HTTP/1.1 200 OK / Content-Type / Date / Content-Length  (4 headers, none security-related)
+
+=== ZAP baseline AFTER fix ===
+WARN-NEW: 1, PASS: 66
+  Non-Storable Content [10049] x4  (informational: no-store is working)
+
+=== headers AFTER ===
+HTTP/1.1 200 OK
+Cache-Control: no-store
+Content-Type: application/json
+Cross-Origin-Resource-Policy: same-origin
+X-Content-Type-Options: nosniff
+Date: Thu, 06 Aug 2026 16:35:23 GMT
+Content-Length: 635
+

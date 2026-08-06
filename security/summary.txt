@@ -1,0 +1,34 @@
+=== trivy image ===
+quicknotes:lab6 (debian 13.6)
+Total: 0 (HIGH: 0, CRITICAL: 0)
+app/quicknotes (gobinary)
+Total: 15 (HIGH: 14, CRITICAL: 1)
+
+=== trivy fs ===
+0 findings (no external dependencies, no go.sum)
+
+=== trivy config ===
+app/Dockerfile (dockerfile)
+===========================
+Tests: 28 (SUCCESSES: 27, FAILURES: 1)
+Failures: 1 (UNKNOWN: 0, LOW: 1, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
+
+AVD-DS-0026 (LOW): Add HEALTHCHECK instruction in your Dockerfile
+════════════════════════════════════════
+You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.
+
+See https://avd.aquasec.com/misconfig/ds026
+────────────────────────────────────────
+
+
+
+=== SBOM components ===
+operating-system	debian	13.6
+application	app/quicknotes	-
+library	base-files	13.8+deb13u6
+library	media-types	13.0.0
+library	netbase	6.5
+library	tzdata-legacy	2026b-0+deb13u1
+library	tzdata	2026b-0+deb13u1
+library	quicknotes	-
+library	stdlib	v1.24.6
