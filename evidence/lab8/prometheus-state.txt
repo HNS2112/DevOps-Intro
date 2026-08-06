@@ -1,0 +1,21 @@
+$ curl -s http://localhost:9090/api/v1/targets | jq ...
+{
+  "job": "quicknotes",
+  "health": "up",
+  "scrapeUrl": "http://quicknotes:8080/metrics"
+}
+
+$ curl -s http://localhost:9090/api/v1/rules | jq ...
+{
+  "name": "HighErrorRate",
+  "state": "firing",
+  "duration": 300,
+  "labels": {
+    "severity": "page"
+  },
+  "activeAt": "2026-08-06T17:28:12.464142167Z",
+  "value": "4.7951176983435045e-01"
+}
+
+$ error ratio at firing time
+0.47951176983435045
