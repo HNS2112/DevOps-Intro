@@ -1,0 +1,23 @@
+=== vagrant up (first 12 lines) ===
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Box 'bento/ubuntu-24.04' could not be found. Attempting to find and install...
+    default: Box Provider: virtualbox
+    default: Box Version: >= 0
+==> default: Loading metadata for box 'bento/ubuntu-24.04'
+    default: URL: https://vagrantcloud.com/api/v2/vagrant/bento/ubuntu-24.04
+==> default: Adding box 'bento/ubuntu-24.04' (v202510.26.0) for provider: virtualbox (amd64)
+    default: Downloading: https://vagrantcloud.com/bento/boxes/ubuntu-24.04/versions/202510.26.0/providers/virtualbox/amd64/vagrant.box
+[KProgress: 0% (Rate: 0/s, Estimated time remaining: --:--:--)[KProgress: 0% (Rate: 0*/s, Estimated time remaining: --:--:--)[KProgress: 0% (Rate: 0*/s, Estimated time remaining: --:--:--)[KProgress: 100% (Rate: 0/s, Estimated time remaining: --:--:--)[KProgress: 100% (Rate: 0/s, Estimated time remaining: --:--:--)[KProgress: 0% (Rate: 0*/s, Estimated time remaining: --:--:--)[KProgress: 0% (Rate: 0*/s, Estimated time remaining: --:--:--)[KProgress: 0% (Rate: 0*/s, Estimated time remaining: --:--:--)[KProgress: 0% (Rate: 0</s, Estimated time remaining: --:--:--)[KProgress: 0% (Rate: 417k/s, Estimated time remaining: 1:34:14)[KProgress: 2% (Rate: 4262k/s, Estimated time remaining: 0:07:06)[KProgress: 4% (Rate: 7272k/s, Estimated time remaining: 0:03:22)[KProgress: 6% (Rate: 8855k/s, Estimated time remaining: 0:02:25)[KProgress: 9% (Rate: 11.8M/s, Estimated time remaining: 0:01:53)[KProgress: 12% (Rate: 14.9M/s, Estimated time remaining: 0:01:33)[KProgress: 14% (Rate: 15.3M/s, Estimated time remaining: 0:01:23)[KProgress: 16% (Rate: 15.3M/s, Estimated time remaining: 0:01:13)[KProgress: 19% (Rate: 15.5M/s, Estimated time remaining: 0:01:05)[KProgress: 21% (Rate: 15.3M/s, Estimated time remaining: 0:01:00)[KProgress: 24% (Rate: 15.5M/s, Estimated time remaining: 0:00:55)[KProgress: 26% (Rate: 15.3M/s, Estimated time remaining: 0:00:52)[KProgress: 29% (Rate: 15.3M/s, Estimated time remaining: 0:00:48)[KProgress: 31% (Rate: 15.0M/s, Estimated time remaining: 0:00:45)[KProgress: 34% (Rate: 15.2M/s, Estimated time remaining: 0:00:42)[KProgress: 36% (Rate: 14.9M/s, Estimated time remaining: 0:00:40)[KProgress: 38% (Rate: 15.1M/s, Estimated time remaining: 0:00:38)[KProgress: 41% (Rate: 15.1M/s, Estimated time remaining: 0:00:35)[KProgress: 44% (Rate: 15.5M/s, Estimated time remaining: 0:00:33)[KProgress: 46% (Rate: 15.1M/s, Estimated time remaining: 0:00:31)[KProgress: 48% (Rate: 15.1M/s, Estimated time remaining: 0:00:29)[KProgress: 51% (Rate: 15.3M/s, Estimated time remaining: 0:00:28)[KProgress: 53% (Rate: 15.1M/s, Estimated time remaining: 0:00:26)[KProgress: 56% (Rate: 14.7M/s, Estimated time remaining: 0:00:24)[KProgress: 58% (Rate: 15.1M/s, Estimated time remaining: 0:00:23)[KProgress: 60% (Rate: 15.1M/s, Estimated time remaining: 0:00:21)[KProgress: 63% (Rate: 14.9M/s, Estimated time remaining: 0:00:20)[KProgress: 65% (Rate: 15.1M/s, Estimated time remaining: 0:00:18)[KProgress: 68% (Rate: 15.1M/s, Estimated time remaining: 0:00:17)[KProgress: 70% (Rate: 15.3M/s, Estimated time remaining: 0:00:15)[KProgress: 73% (Rate: 15.2M/s, Estimated time remaining: 0:00:14)[KProgress: 75% (Rate: 15.2M/s, Estimated time remaining: 0:00:13)[KProgress: 78% (Rate: 15.2M/s, Estimated time remaining: 0:00:11)[KProgress: 80% (Rate: 15.2M/s, Estimated time remaining: 0:00:10)[KProgress: 83% (Rate: 15.1M/s, Estimated time remaining: 0:00:09)[KProgress: 85% (Rate: 15.2M/s, Estimated time remaining: 0:00:08)[KProgress: 88% (Rate: 15.2M/s, Estimated time remaining: 0:00:06)[KProgress: 90% (Rate: 15.4M/s, Estimated time remaining: 0:00:05)[KProgress: 92% (Rate: 15.3M/s, Estimated time remaining: 0:00:04)[KProgress: 95% (Rate: 15.2M/s, Estimated time remaining: 0:00:03)[KProgress: 97% (Rate: 15.3M/s, Estimated time remaining: 0:00:01)[K==> default: Successfully added box 'bento/ubuntu-24.04' (v202510.26.0) for 'virtualbox (amd64)'!
+==> default: Importing base box 'bento/ubuntu-24.04'...
+[KProgress: 20%[KProgress: 30%[KProgress: 40%[KProgress: 90%[K==> default: Matching MAC address for NAT networking...
+==> default: Checking if box 'bento/ubuntu-24.04' version '202510.26.0' is up to date...
+
+=== go version inside VM ===
+go version go1.24.6 linux/amd64
+
+=== curl from inside the VM ===
+{"notes":4,"status":"ok"}
+
+=== curl from the host via forwarded port 18080 ===
+{"notes":4,"status":"ok"}
+

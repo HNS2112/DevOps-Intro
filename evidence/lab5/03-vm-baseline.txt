@@ -1,0 +1,18 @@
+=== VM: cold boot ===
+==> default: flag to force provisioning. Provisioners marked to run always will still run.
+
+real	0m24,846s
+user	0m2,504s
+sys	0m2,046s
+
+=== VM: idle RAM ===
+
+               total        used        free      shared  buff/cache   available
+Mem:           961Mi       319Mi       569Mi       1.0Mi       212Mi       641Mi
+Swap:          2.9Gi          0B       2.9Gi
+
+=== VM: process count ===
+161
+
+=== VM: disk size ===
+2,7G	/home/hns/VirtualBox VMs/DevOps-Intro_default_1786039072396_15360

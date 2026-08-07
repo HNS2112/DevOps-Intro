@@ -63,3 +63,4 @@ Thumbs.db
 #   wasm/main.go, spin.toml, go.sum   (Lab 12)
 data/
 app/data/
+.vagrant/

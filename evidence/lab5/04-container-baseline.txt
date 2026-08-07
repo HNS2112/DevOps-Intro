@@ -1,0 +1,23 @@
+=== Container: cold start ===
+qn5
+qn5
+
+real	0m0,125s
+user	0m0,006s
+sys	0m0,010s
+
+=== Container: health ===
+{"notes":4,"status":"ok"}
+
+
+=== Container: idle RAM ===
+CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O       BLOCK I/O   PIDS
+74c862bfe5d0   qn5       0.00%     3.207MiB / 15.42GiB   0.02%     530B / 574B   0B / 0B     8
+
+=== Container: process count ===
+1
+
+=== Container: image size ===
+WARNING: This output is designed for human readability. For machine-readable output, please use --format.
+IMAGE             ID             DISK USAGE   CONTENT SIZE   EXTRA
+quicknotes:lab5   31a7ee277ce2       9.22MB             0B   U    
